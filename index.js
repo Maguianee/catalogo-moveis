@@ -10,7 +10,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '1234',
-    database: 'sistema_agendamento'
+    database: 'catalogoMoveis'
 });
 db.connect((err) => {
     if (err) {
@@ -23,23 +23,23 @@ db.connect((err) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
-app.get('/agendamentos', (req, res) => {
-    db.query('SELECT * FROM agendamentos', (err, results) => {
+app.get('/catalogo', (req, res) => {
+    db.query('SELECT * FROM catalogoMoveis', (err, results) => {
         if (err) {
             return res.status(500).send(err);
         }
         res.json(results);
     });
 });
-app.post('/agendar', (req, res) => {
-    const { nome_cliente, servico, data_agendamento, hora_agendamento } =
+app.post('/postar', (req, res) => {
+    const { nome_item, descricao, preco } =
         req.body;
     const sql = `
-INSERT INTO agendamentos
-(nome_cliente, servico, data_agendamento, hora_agendamento)
-VALUES (?, ?, ?, ?)
+INSERT INTO catalogoMoveis
+(nome_item, descricao, preco)
+VALUES (?, ?, ?)
 `;
-    db.query(sql, [nome_cliente, servico, data_agendamento, hora_agendamento], (err) => {
+    db.query(sql, [nome_item, descricao, preco], (err) => {
             if (err) {
                 return res.status(500).send(err);
             }

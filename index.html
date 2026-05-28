@@ -4,57 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Agendamento</title>
+    <title>Catálogo de móveis</title>
     <link rel="stylesheet" href="/Style.css/style.css">
 </head>
 
 <body>
-    <h1>Sistema de Agendamento</h1>
+    <h1>Catálogo de móveis</h1>
+    <h3>Adicione descrição de algum móvel para que outros possam apreciar com a alma</h3>
     <!-- Formulário -->
-    <form method="POST" action="/agendar">
-        <label>Nome do Cliente</label>
-        <input type="text" name="nome_cliente" required>
-        <label>Serviço</label>
-        <input type="text" name="servico" required>
-        <label>Data</label>
-        <input type="date" name="data_agendamento" required>
-        <label>Hora</label>
-        <input type="time" name="hora_agendamento" required>
-        <button type="submit">Agendar</button>
+    <form method="POST" action="/postar">
+        <label>Nome do item</label>
+        <input type="text" name="nome_item" required>
+        <label>Descrição</label>
+        <input type="text" name="descricao" required>
+        <label>Preço</label>
+        <input type="number" step="any" name="preco" required>
+        <button type="submit">Lançar</button>
     </form>
     <!-- Lista -->
-    <h2>Agendamentos</h2>
+    <h2>Itens</h2>
     <ul id="lista"></ul>
     <script>
-        function carregarAgendamentos() {
-            fetch('/agendamentos')
+        function carregaritens() {
+            fetch('/catalogo')
                 .then(res => res.json())
                 .then(data => {
                     const lista = document.getElementById('lista');
                     lista.innerHTML = '';
                     if (data.length === 0) {
-                        lista.innerHTML = '<li>Nenhum agendamento ainda</li>';
+                        lista.innerHTML = '<li>Nenhum item ainda</li>';
                         return;
                     }
 
                     data.forEach(item => {
                         const li = document.createElement('li');
                         li.innerHTML = `
-                            <strong>${item.nome_cliente}</strong><br>
-                            Serviço: ${item.servico}<br>
-                            Data: ${item.data_agendamento} <br>
-                            Hora: ${item.hora_agendamento}
+                            <strong>${item.nome_item}</strong><br>
+                            Descrição: ${item.descricao}<br>
+                            Preço: ${item.preco} <br>
                         `;
                         lista.appendChild(li);
                     });
                 })
                 .catch(() => {
                     document.getElementById('lista').innerHTML =
-                        '<li>Erro ao carregar agendamentos</li>';
+                        '<li>Erro ao carregar itens</li>';
                 });
         }
         // Carrega ao abrir a página
-        carregarAgendamentos();
+        carregaritens();
     </script>
 </body>
 
