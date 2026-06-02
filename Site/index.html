@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de móveis</title>
+    <link rel="stylesheet" href="/Style/style.css">
+</head>
+
+<body>
+    <h1>Catálogo de móveis</h1>
+    <h3>Adicione descrição de algum móvel para que outros possam apreciar com a alma</h3>
+    
+    <form method="POST" action="/postar">
+        <label>Nome do item</label>
+        <input type="text" name="nome_item" required>
+        <label>Descrição</label>
+        <input type="text" name="descricao" required>
+        <label>Preço</label>
+        <input type="number" step="any" name="preco" required>
+        <button type="submit">Lançar</button>
+    </form>
+    
+    <h2>Itens</h2>
+
+<div id = "container-catalogo"></div>   
+<script src = "Script/script.js"></script>
+</body>
+
+</html>
