@@ -19,7 +19,7 @@ h3 {
     color: white;
     padding: 20px;
     margin: 0;
-    font-weight: normal; /* Deixa o subtítulo um pouco mais elegante */
+    font-weight: normal; 
     font-size: 16px;
 }
 
@@ -67,20 +67,17 @@ form button {
 }
 
 form button:hover {
-    background-color: #5c0417; /* Um tom mais escuro para o efeito de hover */
+    background-color: #5c0417; 
 }
 
-/* =================================================== */
-/* CONTAINER DOS CARDS (LADO A LADO)                   */
-/* =================================================== */
 #container-catalogo {
     display: flex;
     flex-wrap: wrap; 
     gap: 20px;       
     padding: 20px;
     max-width: 1200px;
-    margin: 0 auto; /* Centraliza a área dos cards na tela */
-    justify-content: center; /* Centraliza os cards caso fiquem poucos na linha */
+    margin: 0 auto; 
+    justify-content: center; 
 }
 
 /* O Card Individual de cada Móvel */
@@ -89,10 +86,9 @@ form button:hover {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 20px;
-    /* Divide o espaço: tenta ocupar 25% da linha tirando o espaçamento (gap) */
     flex: 1 1 calc(25% - 20px); 
-    min-width: 260px; /* Impede os cards de ficarem espremidos em telas pequenas */
-    max-width: 320px; /* Impede os cards de ficarem esticados demais em telas gigantes */
+    min-width: 260px; 
+    max-width: 320px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
@@ -100,8 +96,8 @@ form button:hover {
 }
 
 .moveil-card h3 {
-    background-color: transparent; /* Remove o fundo roxo herdado do h3 global */
-    color: #820722;                /* Aplica a cor de destaque no título do móvel */
+    background-color: transparent;
+    color: #820722;                
     text-align: left;
     padding: 0;
     margin: 0 0 10px 0;
@@ -114,7 +110,7 @@ form button:hover {
     font-size: 14px;
     margin: 0 0 15px 0;
     line-height: 1.4;
-    flex-grow: 1; /* Faz o texto empurrar o preço e o botão sempre para o rodapé do card */
+    flex-grow: 1; 
 }
 
 .moveil-card .preco {
@@ -124,7 +120,6 @@ form button:hover {
     margin: 0 0 15px 0;
 }
 
-/* Botão de Excluir dentro do Card */
 .btn-excluir {
     background-color: #dc3545;
     color: white;
@@ -142,7 +137,6 @@ form button:hover {
     background-color: #c82333;
 }
 
-/* Mensagens de aviso */
 .vazio, .erro {
     width: 100%;
     text-align: center;

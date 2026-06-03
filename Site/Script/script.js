@@ -10,13 +10,10 @@ function carregaritens() {
                 return;
             }
 
-            // O loop loop passa por cada móvel vindo do banco
             data.forEach(item => {
-                // Criamos o card individual do móvel
                 const card = document.createElement('div');
-                card.className = 'moveil-card'; // Cada móvel ganha essa classe
+                card.className = 'moveil-card'; 
 
-                // A formatação do preço precisa acontecer AQUI DENTRO do loop:
                 const precoFormatado = Number(item.preco).toLocaleString('pt-BR', {
                     style: 'currency',
                     currency: 'BRL'
@@ -46,7 +43,7 @@ function excluirItem(id) {
             .then(res => {
                 if (res.ok) {
                     alert("Móvel excluído com sucesso!");
-                    carregaritens(); // Recarrega a lista atualizada
+                    carregaritens(); 
                 } else {
                     alert("Erro ao excluir o item.");
                 }
