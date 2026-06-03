@@ -2,13 +2,13 @@ const express = require('express');
 const mysql = require('mysql2');
 const path = require('path');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname,"Site")));
 
-const db = mysql.createConnection({
+const db = mysql.createConnection(process.env.MYSQL_URL ||{
     host: 'localhost',
     user: 'root',
     password: '1234',
